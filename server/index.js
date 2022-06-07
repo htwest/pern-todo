@@ -6,7 +6,10 @@ const pool = require("./db");
 
 const port = 5000;
 
-// Middleware
+// ************
+// MIDDLEWARE
+// ************
+
 app.use(cors());
 app.use(express.json());
 
@@ -14,7 +17,9 @@ app.listen(port, () => {
   console.log(`Server started on ${port}`);
 });
 
+// ************
 // ROUTES
+// ************
 
 // Create Todo
 
@@ -31,6 +36,7 @@ app.post("/todos", async (req, res) => {
     console.error(err.message);
   }
 });
+
 // Get All Todo's
 
 app.get("/todos", async (req, res) => {
@@ -74,3 +80,16 @@ app.put("/todos/:id", async (req, res) => {
 });
 
 // Delete a Todo
+
+app.delete("/todos/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [
+      id,
+    ]);
+
+    res.json("Todo was deleted");
+  } catch {
+    console.error(err.message);
+  }
+});
