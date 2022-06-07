@@ -15,6 +15,7 @@ const InputTodo = () => {
       });
 
       console.log(response);
+      window.lcoation = "/";
     } catch (err) {
       console.error(err.message);
     }
