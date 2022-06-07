@@ -8,7 +8,10 @@ const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
 
   // Functions
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setDescription(todo.description);
+  };
   const handleShow = () => setShow(true);
 
   const updateDescription = async (e) => {
