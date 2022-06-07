@@ -15,7 +15,7 @@ const InputTodo = () => {
       });
 
       console.log(response);
-      window.lcoation = "/";
+      window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
