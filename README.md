@@ -69,3 +69,6 @@ Used to test PERN deployment on Heroku.
     - Create 'heroku-postbuild' script to install client depencenices and create build folder
 
       - "heroku-postbuild": "cd client && npm install && npm run build"
+
+11. Set up proxy in client package.json and change request paths
+    - "proxy" : "http://localhost:5000"
