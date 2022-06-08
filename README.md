@@ -71,4 +71,14 @@ Used to test PERN deployment on Heroku.
       - "heroku-postbuild": "cd client && npm install && npm run build"
 
 11. Set up proxy in client package.json and change request paths
+
     - "proxy" : "http://localhost:5000"
+
+    - proxy is only used in devlopment so it will be ignored in production. If there is no http://localhost:5000 then
+      by default it is going to use heroku domain. EX: http://pern-todo-app.herokuapp.com/todos
+
+    - Change fetch requests in app to reflect proxy
+
+      - await fetch("http://localhost:5000/todos") --> await fetch("/todos")
+
+    - Reset cache by deleting and reinstalling node_modules
