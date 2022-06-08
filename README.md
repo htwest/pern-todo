@@ -82,3 +82,10 @@ Used to test PERN deployment on Heroku.
       - await fetch("http://localhost:5000/todos") --> await fetch("/todos")
 
     - Reset cache by deleting and reinstalling node_modules
+
+12. Configure engines in package.json
+
+    - "engines": {
+      "node": "xx.xx.x",
+      "npm": "x.xx.x"
+      }
