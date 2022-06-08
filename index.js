@@ -106,3 +106,7 @@ app.delete("/todos/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
