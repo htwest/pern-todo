@@ -16,9 +16,10 @@ Used to test PERN deployment on Heroku.
 
     - Require "Paths"
     - Set PORT to process.env.PORT
-    - set up app to run on build in production enviroment: \* if (process.env.NODE_ENV === "production") {
-      app.use(express.static(path.join(\_\_dirname, "client/build")));
-      }
+    - set up app to run on build in production enviroment
+      - if (process.env.NODE_ENV === "production") {
+        app.use(express.static(path.join(\_\_dirname, "client/build")));
+        }
 
 5.  $npm install dotenv
 
@@ -51,3 +52,20 @@ Used to test PERN deployment on Heroku.
     - const pool = new Pool(
       process.env.NODE_ENV === "production" ? proConfig : devConfig
       );
+
+10. Set up package.json scripts
+
+    - Heroku Script Order:
+
+      - heroku-prebuild
+      - npm install
+      - heroku-postbuild
+      - start
+
+    - Create 'start' script to run node server
+
+      - "start": "node index.js"
+
+    - Create 'heroku-postbuild' script to install client depencenices and create build folder
+
+      - "heroku-postbuild": "cd client && npm install && npm run build"
