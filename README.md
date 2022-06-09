@@ -89,3 +89,33 @@ Used to test PERN deployment on Heroku.
       "node": "xx.xx.x",
       "npm": "x.xx.x"
       }
+
+13. Login to Heroku CLI
+
+    - $heroku login
+
+14. Creat Heroku app
+
+    - $ heroku create app_name
+
+15. Install Postgres addon
+
+    - $ heroku addons:create heroku-postgresql:hobby-dev -a app_name
+
+16. Connect to heroku postgres
+
+    - $ heroku pg:psql -a app_name
+
+17. Create table
+
+    - CREATE TABLE todo(
+      ...
+      )
+
+18. Add remote git to heroku
+
+    - heroku git:remote -a app_name
+
+19. Push all changes to heroku remote repo
+
+    - git push heroku master
